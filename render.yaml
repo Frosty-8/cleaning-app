@@ -3,10 +3,6 @@ services:
     name: flask-csv-cleaner
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
-    runtime: python
-    region: oregon  # Or any region you prefer
+    startCommand: gunicorn app:app
+    region: oregon
     plan: free
-    envVars:
-      - key: FLASK_ENV
-        value: production
